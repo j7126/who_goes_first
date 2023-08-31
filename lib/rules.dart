@@ -4,7 +4,17 @@ import "dart:math";
 class Rules {
   static final Random _random = Random();
 
-  static Rule random() => rules[_random.nextInt(rules.length)];
+  static Rule random() {
+    if (availableRules?.isEmpty ?? true) {
+      availableRules = rules;
+    }
+    var i = _random.nextInt(availableRules?.length ?? 1);
+    var result = availableRules?[i] ?? rules[0];
+    availableRules?.removeAt(i);
+    return result;
+  }
+
+  static List<Rule>? availableRules;
 
   static List<Rule> rules = [
     Rule(rule: "Who has the pointiest ears?", games: ["Small World"]),
@@ -79,7 +89,7 @@ class Rules {
     Rule(rule: "Who can do the best penguin impression?", games: ["Penguin Soccer"]),
     Rule(rule: "Who suggested the game?", games: ["GUBS: A Game of Wit and Luck", "Roads and Boats"]),
     Rule(rule: "Who is wearing the most black?", games: ["Ice Pirates of Harbour Grace"]),
-    Rule(rule: "Who is the least wise?", games: [""]),
+    Rule(rule: "Who is the least wise?", games: []),
     Rule(rule: "Who has the tiniest teeth?", games: ["Mäuse-Rallye"]),
     Rule(rule: "Who can hold a high C note for the longest?", games: ["Maestro"]),
     Rule(rule: "Who is most in need of a shave?", games: ["Goldrush-City"]),
