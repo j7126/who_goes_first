@@ -1,11 +1,11 @@
 {
-    "name": "who_goes_first",
-    "short_name": "who_goes_first",
+    "name": "Who goes first?",
+    "short_name": "Who goes first?",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#2f9867",
+    "theme_color": "#2f9867",
+    "description": "Random funny \"who goes first\" rules from popular tabletop games!",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
