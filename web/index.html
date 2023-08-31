@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -27,10 +28,77 @@
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <title>Who goes first?</title>
   <link rel="manifest" href="manifest.json">
+
+  <style>
+    .lds-ring {
+      display: inline-block;
+      position: relative;
+      width: 80px;
+      height: 80px;
+    }
+
+    .lds-ring div {
+      box-sizing: border-box;
+      display: block;
+      position: absolute;
+      width: 64px;
+      height: 64px;
+      margin: 8px;
+      border: 8px solid #fff;
+      border-radius: 50%;
+      animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+      border-color: #fff transparent transparent transparent;
+    }
+
+    .lds-ring div:nth-child(1) {
+      animation-delay: -0.45s;
+    }
+
+    .lds-ring div:nth-child(2) {
+      animation-delay: -0.3s;
+    }
+
+    .lds-ring div:nth-child(3) {
+      animation-delay: -0.15s;
+    }
+
+    @keyframes lds-ring {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    #loader {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      justify-items: center;
+      align-items: center;
+      align-content: center;
+      background-color: #2f9867;
+      z-index: -1;
+    }
+
+    #loader-title {
+      font-family: Helvetica, Arial, sans-serif;
+      font-weight: 500;
+      font-size: 22;
+      color: white;
+    }
+  </style>
 
   <script>
     // The value below is injected by flutter build, do not touch.
@@ -39,16 +107,26 @@
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
 </head>
+
 <body>
+  <div id="loader">
+    <h1 id="loader-title">Who goes first?</h1>
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
   <script>
-    window.addEventListener('load', function(ev) {
+    window.addEventListener('load', function (ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
         serviceWorker: {
           serviceWorkerVersion: serviceWorkerVersion,
         },
-        onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine().then(function(appRunner) {
+        onEntrypointLoaded: function (engineInitializer) {
+          engineInitializer.initializeEngine().then(function (appRunner) {
             appRunner.runApp();
           });
         }
@@ -56,4 +134,5 @@
     });
   </script>
 </body>
+
 </html>
