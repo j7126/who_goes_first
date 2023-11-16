@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:who_goes_first/about_page.dart';
 import 'package:who_goes_first/rule.dart';
 import 'package:who_goes_first/rules.dart';
 
@@ -51,10 +51,13 @@ class _HomePageState extends State<HomePage> {
           PopupMenuButton(
             itemBuilder: (BuildContext context) => <PopupMenuEntry>[
               PopupMenuItem(
-                child: const Text('View on GitHub'),
+                child: const Text('About'),
                 onTap: () {
-                  final Uri url = Uri.parse('https://github.com/j7126/who_goes_first');
-                  launchUrl(url);
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const AboutPage(),
+                    ),
+                  );
                 },
               ),
             ],
