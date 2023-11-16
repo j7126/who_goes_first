@@ -15,7 +15,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Who Goes First?',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.green,
+        ),
+        useMaterial3: true,
+      ),
+      darkTheme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.green,
+          brightness: Brightness.dark,
+        ),
         useMaterial3: true,
       ),
       home: const HomePage(),
