@@ -22,15 +22,37 @@ dev_dependencies:
 
   flutter_lints: ^3.0.1
 
+  flutter_launcher_icons: "^0.13.1"
+
 flutter:
 
   uses-material-design: true
 
   assets:
-    - assets/icon/Icon-512.png
+    - assets/icon/logo.png
 
   fonts:
     - family:  CustomIcons
       fonts:
        - asset: fonts/CustomIcons.ttf
 
+flutter_launcher_icons:
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/icon/logo.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  adaptive_icon_background: "assets/icon/logo_bg.png"
+  adaptive_icon_foreground: "assets/icon/logo_fg.png"
+  web:
+    generate: true
+    image_path: "assets/icon/logo_circle.png"
+    background_color: "#274625"
+    theme_color: "#274625"
+  windows:
+    generate: true
+    image_path: "assets/icon/logo.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/icon/logo.png"
