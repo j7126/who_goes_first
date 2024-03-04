@@ -61,7 +61,7 @@ class _AboutPageState extends State<AboutPage> {
                                   style: Theme.of(context).textTheme.titleLarge,
                                 ),
                                 Text(
-                                  '© 2023 Jefferey Neuffer',
+                                  '© 2024 Jefferey Neuffer',
                                   style: Theme.of(context).textTheme.titleSmall,
                                 ),
                               ],
@@ -271,6 +271,59 @@ class _AboutPageState extends State<AboutPage> {
                   ),
                 ),
               ),
+              GestureDetector(
+                  onTap: () => launchUrl(Uri.parse('https://github.com/j7126/who_goes_first/blob/main/LICENSE.txt')),
+                  child: Card(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          const Opacity(
+                            opacity: 0.5,
+                            child: Icon(
+                              Icons.gavel_outlined,
+                              size: 32,
+                            ),
+                          ),
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                              child: Opacity(
+                                opacity: 0.9,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'License',
+                                      style: Theme.of(context).textTheme.titleLarge,
+                                    ),
+                                    Text(
+                                      'GNU Affero General Public License',
+                                      style: Theme.of(context).textTheme.titleSmall,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: Opacity(
+                    opacity: 0.3,
+                    child: Text(
+                      "Who Goes First Copyright (C) 2024 Jefferey Neuffer.\nThis program is free software, licensed under GNU AGPL v3 or any later version.",
+                      style: TextStyle(
+                        fontSize: 12.0,
+                      ),
+                    ),
+                  ),
+                ),
             ],
           ),
         ),
