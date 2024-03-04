@@ -1,0 +1,1 @@
+This application does not transmit or share any personal user data.
