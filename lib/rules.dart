@@ -39,7 +39,7 @@ class Rules {
     Rule(
       rule: "Who is the most well traveled?",
       games: [
-        Game("Ticket to Ride"),
+        Game("Ticket to Ride", link: Uri.parse("https://www.daysofwonder.com/ticket-to-ride/")),
       ],
     ),
     Rule(
@@ -60,7 +60,7 @@ class Rules {
     Rule(
       rule: "Who does the youngest player choose?",
       games: [
-        Game("Carcassonne"),
+        Game("Carcassonne", link: Uri.parse("https://zmangames.com/en/games/carcassone/")),
       ],
     ),
     Rule(
@@ -78,13 +78,13 @@ class Rules {
     Rule(
       rule: "Who is the thirstiest?",
       games: [
-        Game("Forbidden Desert"),
+        Game("Forbidden Desert", link: Uri.parse("https://gamewright.com/product/Forbidden-Desert")),
       ],
     ),
     Rule(
       rule: "Who last visited an island?",
       games: [
-        Game("Forbidden Island"),
+        Game("Forbidden Island", link: Uri.parse("https://gamewright.com/product/Forbidden-Island")),
         Game("Maka Baka"),
       ],
     ),
