@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:who_goes_first/about_page.dart';
+import 'package:who_goes_first/game.dart';
 import 'package:who_goes_first/rule.dart';
 import 'package:who_goes_first/rules.dart';
 
@@ -108,16 +110,40 @@ class _HomePageState extends State<HomePage> {
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
                     ),
-                    for (var game in rule?.games ?? [])
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(32.0),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                          child: Text(
-                            game,
-                            style: Theme.of(context).textTheme.bodyMedium,
+                    for (var game in rule?.games ?? <Game>[])
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Card(
+                          margin: EdgeInsets.zero,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(32.0),
+                          ),
+                          child: TextButton(
+                            style: const ButtonStyle(
+                              padding: MaterialStatePropertyAll(EdgeInsets.zero),
+                            ),
+                            onPressed: game.link == null ? null : () => launchUrl(game.link!),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  if (game.link != null)
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 8.0),
+                                      child: Icon(
+                                        Icons.open_in_new,
+                                        color: Theme.of(context).textTheme.bodyMedium?.color,
+                                        size: (Theme.of(context).textTheme.bodyMedium?.fontSize ?? 14) * 1.4,
+                                      ),
+                                    ),
+                                  Text(
+                                    game.name,
+                                    style: Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
                         ),
                       ),
