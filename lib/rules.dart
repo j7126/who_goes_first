@@ -592,7 +592,7 @@ class Rules {
       ],
     ),
     Rule(
-      rule: "Who bought the oldest object with them?",
+      rule: "Who brought the oldest object with them?",
       games: [
         Game("Jenseits von Theben"),
       ],
