@@ -1,7 +1,6 @@
 plugins {
-    id "com.android.application"
-    id "kotlin-android"
-    id "dev.flutter.flutter-gradle-plugin"
+    id 'com.android.application'
+    id 'dev.flutter.flutter-gradle-plugin'
 }
 
 def localProperties = new Properties()
@@ -29,17 +28,13 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace "com.example.who_goes_first"
+    namespace 'dev.j7126.who_goes_first'
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions {
-        jvmTarget = '1.8'
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     sourceSets {
@@ -47,7 +42,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "dev.j7126.who_goes_first"
+        applicationId 'dev.j7126.who_goes_first'
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdkVersion flutter.minSdkVersion
@@ -68,12 +63,26 @@ android {
         release {
             signingConfig signingConfigs.release
         }
+        debug {
+            if (keystorePropertiesFile.exists()) {
+                signingConfig signingConfigs.release
+                println 'Signing with key.properties'
+            } else {
+                signingConfig signingConfigs.debug
+                println 'Signing with debug keys'
+            }
+        }
     }
+}
 
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+    }
 }
 
 flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies { }
